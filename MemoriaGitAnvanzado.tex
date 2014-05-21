@@ -18,7 +18,9 @@ Creamos el fichero, hacemos git add <nombre del fichero> y por último hacemos u
 \section{No queremos tantos commits}
 Se usa el comando git rebase -i <SHA1>, en teoría debería de aparecer una ventana para editar los cambios, en su lugar aparece el siguiente texto: "Successfully rebased and updated refs/heads/master" y no aparece ninguna ventana. También se ha intentado sustituir el SHA1 por la referencia, pero tampoco ha funcionado.
 \section{Creando la rama de tu equipo}
+Cada equipo crea una rama con git branch <nombre del equipo>, seguidamente se colocan cada uno en su respectiva rama con git checkout <nombre del equipo>, después se crea un fichero y se añaden al repositorio de trabajo usando add y commit, por último se hace git push <URL> <nombre de la rama>.
 \section{Trabajando con un repositorio remoto}
+Se hace un git push <URL> <nombre del equipo>. Se comprueban las ramas remotas que existan con git branch -r
 \section{Clave pública SSH}
 \section{Generando números}
 \section{Merge sin conflictos}
