@@ -7,6 +7,15 @@
 #define MAX_WHITE_BALL 59
 #define MAX_POWER_BALL 39
 
+int whiteballs_computer_generated()
+{
+return rand()%59+1;
+}
+int powerball_computer_generated()
+{
+return rand()%39+1;
+}
+
 static int my_sort_func(const void* p1, const void* p2)
 {
     int v1 = *((int *) p1);
@@ -19,6 +28,10 @@ static int my_sort_func(const void* p1, const void* p2)
     {
 	return 0;
     }
+	else
+	{
+		return 0;
+	}
 }
 
 
@@ -51,12 +64,25 @@ int main(int argc, char** argv)
     int balls[6];
     int count_balls = 0;
     bool favourite = false; // this sould be a bool
-    
+
     for (int i=1; i<argc;i++)
     {
         goto usage_error;
     }
     
+	if (6 != count_balls)
+	{
+		for (int i = 0; i < 5; i++){
+		balls[i] = whiteballs_computer_generated();
+		}
+		balls[5] = powerball_computer_generated(); // Power ball
+		printf("Your numbers are: ");
+		for (int i = 0; i < 5; i++){
+		printf("%d ", balls[i]);
+	}
+	printf("\nAnd the power ball:");
+	printf(" %d\n", balls[5]);
+	}
     // the powerball is always the last one given
     int power_ball = balls[5];
     
