@@ -91,6 +91,7 @@ void lottery_numbers_simulation()
 		    bola_aux = whiteballs_computer_generated();
             }
 	    bolas[i] = bola_aux;
+
         }
     }
     bolas[5] = powerball_computer_generated();
