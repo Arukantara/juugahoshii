@@ -66,8 +66,7 @@ int calculate_result(int white_balls[5], int power_ball)
 void showing_results(int white_balls[5], int power_ball)
 {
 
-  qsort(white_balls, 5, sizeof(int), my_sort_func);
-  printf("Your sorted numbers: \n");
+  printf("The numbers of the white balls sorted: \n");
   
   for(int i = 0; i < 5; i++){
     printf("%d ", white_balls[i]);
@@ -128,7 +127,6 @@ int main(int argc, char** argv)
     int power_ball = balls[5];
     
     int result = calculate_result(balls, power_ball);
-    lottery_numbers_simulation();
     showing_results(balls, power_ball);    
 
 
@@ -151,7 +149,9 @@ int main(int argc, char** argv)
     {
         result = result * 2;
     }
-
+    
+    printf("\n--- The lottery numbers ---\n");
+    lottery_numbers_simulation();
     printf("%d percent chance of winning\n", result);
 
     return 0;
