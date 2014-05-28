@@ -64,6 +64,27 @@ void showing_results(int white_balls[5], int power_ball)
   printf("The power ball: %d \n", power_ball);
 }
 
+void lottery_numbers_simulation()
+{
+    int bolas[6];
+    int bola_aux;
+    for(int i = 0; i < 5; i++)
+    {
+        if(i == 0)
+            bolas[i] = whiteballs_computer_generated();
+        else{
+            bola_aux = whiteballs_computer_generated();
+            for(int j = i-1; j >=0; j--){
+		if(bolas[j] == bola_aux)
+		    bola_aux = whiteballs_computer_generated();
+            }
+	    bolas[i] = bola_aux;
+        }
+    }
+    bolas[5] = powerball_computer_generated();
+    qsort(bolas, 5, sizeof(int), my_sort_func);
+    showing_results(bolas, bolas[5]);
+}
 
 int main(int argc, char** argv)
 {
@@ -93,7 +114,7 @@ int main(int argc, char** argv)
     int power_ball = balls[5];
     
     int result = calculate_result(balls, power_ball);
-
+    lottery_numbers_simulation();
     showing_results(balls, power_ball);    
 
 
