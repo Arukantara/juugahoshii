@@ -75,9 +75,9 @@ void showing_results(int white_balls[5], int power_ball)
   printf("The power ball: %d \n", power_ball);
 }
 
-void lottery_numbers_simulation()
+void lottery_numbers_simulation(int *bolas)
 {
-    int bolas[6];
+    //int bolas[6];
     int bola_aux;
     for(int i = 0; i < 5; i++)
     {
@@ -101,7 +101,9 @@ void lottery_numbers_simulation()
 int main(int argc, char** argv)
 {
     int balls[6];
+    int lott[6];
     int count_balls = 0;
+    
     bool favourite = false; // this sould be a bool
 
     for (int i=1; i<argc;i++)
@@ -133,6 +135,15 @@ int main(int argc, char** argv)
     // calculate result can return -1 if the ball numbers
     // are out of range
     
+    printf("\n--- The lottery numbers ---\n");
+    lottery_numbers_simulation(lott);
+    result = calculate_result(balls, power_ball);
+    showing_results(balls, power_ball);
+
+    if (result <0)
+    {
+        goto usage_error;
+    }
     
     if(result < 0)
     {
@@ -151,7 +162,7 @@ int main(int argc, char** argv)
     }
     
     printf("\n--- The lottery numbers ---\n");
-    lottery_numbers_simulation();
+    lottery_numbers_simulation(lott);
     printf("%d percent chance of winning\n", result);
 
     return 0;
