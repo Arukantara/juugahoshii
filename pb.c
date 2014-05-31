@@ -51,10 +51,10 @@ int calculate_result(int white_balls[5], int power_ball)
 {
   for (int i=0; i<5; i++)
     {
-      if ((white_balls[i] < 1) || (white_balls[i] > MAX_WHITE_BALL))
-	{
-	  return -1;
-	}
+         if ((white_balls[i] < 1) || (white_balls[i] > MAX_WHITE_BALL))
+	     {
+	         return -1;
+	     }
     }
   
   // lottery ball numbers are always shown sorted
@@ -128,16 +128,12 @@ int main(int argc, char** argv)
     // the powerball is always the last one given
     int power_ball = balls[5];
     
-    int result = calculate_result(balls, power_ball);
-    showing_results(balls, power_ball);    
-
-
     // calculate result can return -1 if the ball numbers
     // are out of range
     
     printf("\n--- The lottery numbers ---\n");
     lottery_numbers_simulation(lott);
-    result = calculate_result(balls, power_ball);
+    int result = calculate_result(balls, power_ball);
     showing_results(balls, power_ball);
 
     if (result <0)
