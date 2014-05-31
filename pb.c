@@ -97,6 +97,7 @@ void lottery_numbers_simulation(int *bolas)
 
         }
     }
+//Sort the lottery numbers
     bolas[5] = powerball_computer_generated();
     qsort(bolas, 5, sizeof(int), my_sort_func);
     showing_results(bolas, bolas[5]);
