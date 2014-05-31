@@ -136,6 +136,7 @@ int main(int argc, char** argv)
     // calculate result can return -1 if the ball numbers
     // are out of range
     
+// Head for my numbers
     printf("\n--- The lottery numbers ---\n");
     lottery_numbers_simulation(lott);
     float result = calculate_result(balls, power_ball, lott);
@@ -161,7 +162,7 @@ int main(int argc, char** argv)
     {
         result = result * 2;
     }
-    
+    // Head for the lottery numbers
     printf("\n--- The lottery numbers ---\n");
     lottery_numbers_simulation(lott);
     printf("%f percent chance of winning\n", result*100);
