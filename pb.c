@@ -50,6 +50,10 @@ static int my_sort_func(const void* p1, const void* p2)
 int calculate_result(int white_balls[5], int power_ball, int *lott)
 {
     float resultado = 0;
+    
+    if(power_ball == lott[5])
+        resultado += 0.1
+    
     for (int i=0; i<5; i++) {
         if ((white_balls[i] < 1) || (white_balls[i] > MAX_WHITE_BALL)) {
             return -1;
